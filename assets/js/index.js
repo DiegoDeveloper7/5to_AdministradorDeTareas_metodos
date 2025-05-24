@@ -81,3 +81,34 @@ function renderizarTareas() {
     cuerpoTabla.appendChild(fila);
   });
 }
+
+// Actualizar contadores
+function actualizarContadores() {
+  totalTareas.textContent = listaTareas.length;
+  tareasRealizadas.textContent = listaTareas.filter(t => t.completed).length;
+}
+
+// Agregar nueva tarea desde el input
+function agregarTarea() {
+  const textoTarea = inputTarea.value.trim();
+
+  if (textoTarea === '') return;
+
+  const nuevaTarea = {
+    id: Date.now(), // ID único
+    name: textoTarea,
+    completed: false
+  };
+
+  listaTareas.push(nuevaTarea);
+  inputTarea.value = '';
+  actualizarContadores();
+  renderizarTareas();
+}
+
+// Evento click del botón Agregar
+btnAgregar.addEventListener('click', agregarTarea);
+
+// Inicializar la aplicación
+renderizarTareas();
+actualizarContadores();
