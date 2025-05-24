@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    background-color: #E5E4E2;
+    color: #e0e0f0;
+}
+
+.ContenedorPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin-top: 5vw;
+}
+
+.subContenedor {
+    background-color: #4169E1;
+    border-radius: 10px;
+    padding: 25px;
+    width: 90%;
+    max-width: 1500px;
+    box-shadow: 0 8px 20px rgba(25, 25, 112, 0.4);
+}
+
+.admin-header {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #3a3a4c;
+}
+
+.admin-header h1 {
+    color: #39FF14;
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+.admin-header i {
+    margin-right: 10px;
+    color: orange;
+}
+
+/* Estilos del input de tareas */
+
+.input-group .form-control {
+    background-color: #C0C0C0;
+    border: 2px solid #3a3a4c;
+    color: white;
+    transition: border-color 0.2s;
+}
+
+.input-group .form-control:focus {
+    background-color: blue;
+    border-color: #39FF14;
+    -box-shadow: 0 0 0 0.2rem rgba(90, 90, 124, 0.25);
+    color: white;
+}
+
+/*.input-group .form-control::placeholder {
+    color: #9090a0;
+}
+
+.input-group .form-control:disabled {
+    background-color: #2a2a3c;
+    color: #9090a0;
+}*/
+
+
+/* Estilos del boton agregar */
+
+.btn-add {
+    background-color: orange;
+    border: 2px solid #3a3a4c;
+    color: #e0e0f0;
+    transition: all 0.2s;
+}
+
+.btn-add:hover, .btn-add:focus {
+    background-color: green;
+    border-color: #39FF14;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(90, 90, 124, 0.25);
+}
+
+.btn-add:disabled {
+    background-color: #2a2a3c;
+    color: #9090a0;
+}
+
+/* Estilos del parrafo contador de tareas - cuadro resumen realizadas total - ver si se modifican clases a partir de aca*/
+
+.details-section {
+    background-color: blue;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.details-section p {
+    margin-bottom: 10px;
+    color: orangered;
+    font-weight: 800;
+}
+
+.details-section p span {
+    color: white;
+    font-weight: 700;
+}
+
+
+/* Estilos de la tabla contenedorea de las tareas */
+
+.table-dark {
+    background-color: #252538;
+    color: #e0e0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-dark thead {
+    background-color: #2a2a3c;
+}
+
+.table-dark td, .table-dark th {
+    border-color: #3a3a4c;
+    padding: 12px 15px;
+}
+
+.table-dark tbody tr {
+    transition: background-color 0.2s;
+}
+
+.table-dark tbody tr:hover {
+    background-color: #2a2a3c;
+}
+
+.form-check-input {
+    background-color: #2a2a3c;
+    border-color: #5a5a7c;
+    width: 22px;
+    height: 22px;
+    transition: all 0.2s;
+}
+
+.form-check-input:hover {
+    background-color: #3a3a4c;
+    border-color: #5a5a7c;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(90, 90, 124, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: #5a5a7c;
+    border-color: #5a5a7c;
+}
+
+.btn-remove {
+    background-color: #d9534f; /* rojo anaranjado */
+    border: 1px solid #c9302c;
+    color: #fff;
+    width: 28px;
+    height: 24px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-remove:hover {
+    background-color: #c9302c; /* más oscuro al pasar el mouse */
+    border-color: #ac2925;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(201, 48, 44, 0.25);
+}
+
+td.completed {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.completed::before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.2rem;
+    content: "\f560";
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: #28a745;
+}
