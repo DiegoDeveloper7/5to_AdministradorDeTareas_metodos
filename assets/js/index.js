@@ -7,12 +7,12 @@ const listaTareas = [
   },
   {
     id: Date.now() + 1,
-    name: 'Estudiar Programación',
+    name: 'Estudiar programación',
     completed: false
   },
   {
     id: Date.now() + 2,
-    name: 'Ir al Gimnasio',
+    name: 'Ir al gimnasio',
     completed: false
   }
 ];
@@ -41,6 +41,7 @@ function renderizarTareas() {
     colNombre.textContent = tarea.name;
     if (tarea.completed) {
       colNombre.style.textDecoration = 'line-through';
+      colNombre.style.color = '#39FF14'; // mi modificacion color texto tarea realizada quede aquiiiiiiiiiiiiiiiiiiiiiiiii
     }
 
     // Columna Acciones
@@ -54,7 +55,10 @@ function renderizarTareas() {
       tarea.completed = !tarea.completed;
       actualizarContadores();
       renderizarTareas();
+     
     };
+
+     console.log(tarea.id) // verificar por que se genrar 4 id por cada click 
 
     // Botón eliminar tarea
     const btnEliminar = document.createElement('button');
@@ -82,21 +86,25 @@ function renderizarTareas() {
   });
 }
 
-// Actualizar contadores
+
+// FUNCIÓN ACTUALIZAR CONTADORES 
+
 function actualizarContadores() {
   totalTareas.textContent = listaTareas.length;
   tareasRealizadas.textContent = listaTareas.filter(t => t.completed).length;
 }
 
-// Agregar nueva tarea desde el input
+
+// FUNCION AGREGAR TAREA: Agregar nueva tarea desde el input
+
 function agregarTarea() {
   const textoTarea = inputTarea.value.trim();
 
-  if (textoTarea === '') return;
+  if (textoTarea === '') return; // detiene la ejecucion si no se agrega texto al input 
 
   const nuevaTarea = {
     id: Date.now(), // ID único
-    name: textoTarea,
+    name: textoTarea.charAt(0).toUpperCase() + textoTarea.slice(1).toLowerCase(), // Formatea el texto de entrada
     completed: false
   };
 
