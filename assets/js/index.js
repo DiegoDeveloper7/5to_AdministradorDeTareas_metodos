@@ -2,12 +2,12 @@
 const listaTareas = [
   {
     id: Date.now(), // Primera tarea con un id basado en la hora actual
-    name: 'Ir al trabajo',
+    name: 'Escribir un libro',
     completed: false
   },
   {
     id: Date.now() + 1,
-    name: 'Estudiar programación',
+    name: 'Estudiar programación JavaScript',
     completed: false
   },
   {
@@ -42,12 +42,14 @@ function renderizarTareas() {
     if (tarea.completed) {
       colNombre.style.textDecoration = 'line-through';
       colNombre.style.color = '#39FF14'; // mi modificacion color texto tarea realizada quede aquiiiiiiiiiiiiiiiiiiiiiiiii
+      colNombre.style.backgroundColor = '#013220'
+      colID.style.color = '#39FF14'
     }
 
     // Columna Acciones
     const colAcciones = document.createElement('td');
 
-    // Botón de marcar como completada
+    // BOTÓN PARA MARCAR TAREA COMO COMPLETADA
     const btnCompletar = document.createElement('button');
     btnCompletar.className = 'btn btn-success btn-sm me-2';
     btnCompletar.innerHTML = '<i class="fas fa-check"></i>';
@@ -58,13 +60,17 @@ function renderizarTareas() {
      
     };
 
-     console.log(tarea.id) // verificar por que se genrar 4 id por cada click 
+     console.log(tarea.id) // verificar por que se genrar 4 id por cada click ******************************************
 
-    // Botón eliminar tarea
+    // BOTON PARA ELIMINAR TAREA 
     const btnEliminar = document.createElement('button');
-    btnEliminar.className = 'btn btn-danger btn-sm';
+    btnEliminar.className = 'btn btn-danger btn-sm ms-3'; // ⬅️ MODIFICADO: se añadió 'ms-3'
     btnEliminar.innerHTML = '<i class="fas fa-trash"></i>';
     btnEliminar.onclick = () => {
+
+      const confirmar = confirm('¿Estas seguro que deseas eliminar esta tarea?');
+      if(!confirmar) return;
+
       const indice = listaTareas.findIndex(t => t.id === tarea.id);
       if (indice !== -1) {
         listaTareas.splice(indice, 1);
