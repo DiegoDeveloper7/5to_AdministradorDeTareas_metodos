@@ -1,7 +1,6 @@
-// Arreglo inicial con tareas predefinidas
 const listaTareas = [
   {
-    id: Date.now(), // Primera tarea con un id basado en la hora actual
+    id: Date.now(), 
     name: 'Escribir un libro',
     completed: false
   },
@@ -17,7 +16,7 @@ const listaTareas = [
   }
 ];
 
-// Referencias a elementos del DOM
+
 const inputTarea = document.getElementById('tarea');
 const btnAgregar = document.getElementById('agregarTarea');
 const cuerpoTabla = document.getElementById('cuerpoTabla');
@@ -25,7 +24,8 @@ const totalTareas = document.getElementById('totalTareas');
 const tareasRealizadas = document.getElementById('tareasRealizadas');
 
 
-// Mostrar todas las tareas actuales en la tabla
+// FUNCIÓN RENDERIZAR TAREAS
+
 function renderizarTareas() {
   cuerpoTabla.innerHTML = ''; // Limpiar tabla
 
@@ -34,17 +34,19 @@ function renderizarTareas() {
 
     // Columna ID
     const colID = document.createElement('td');
-    colID.textContent = index + 1;
+    colID.textContent = index +1;
 
     // Columna Nombre de Tarea
     const colNombre = document.createElement('td');
     colNombre.textContent = tarea.name;
     if (tarea.completed) {
       colNombre.style.textDecoration = 'line-through';
-      colNombre.style.color = '#39FF14'; // mi modificacion color texto tarea realizada quede aquiiiiiiiiiiiiiiiiiiiiiiiii
+      colNombre.style.color = '#39FF14'; // modificación estilos adiconales
       colNombre.style.backgroundColor = '#013220'
       colID.style.color = '#39FF14'
     }
+
+       console.log(tarea.id) // ids Date.now
 
     // Columna Acciones
     const colAcciones = document.createElement('td');
@@ -60,11 +62,10 @@ function renderizarTareas() {
      
     };
 
-     console.log(tarea.id) // verificar por que se genrar 4 id por cada click ******************************************
 
     // BOTON PARA ELIMINAR TAREA 
     const btnEliminar = document.createElement('button');
-    btnEliminar.className = 'btn btn-danger btn-sm ms-3'; // ⬅️ MODIFICADO: se añadió 'ms-3'
+    btnEliminar.className = 'btn btn-danger btn-sm ms-3'; // margen bt borrar modificado ms-3
     btnEliminar.innerHTML = '<i class="fas fa-trash"></i>';
     btnEliminar.onclick = () => {
 
@@ -93,6 +94,7 @@ function renderizarTareas() {
 }
 
 
+
 // FUNCIÓN ACTUALIZAR CONTADORES 
 
 function actualizarContadores() {
@@ -101,7 +103,7 @@ function actualizarContadores() {
 }
 
 
-// FUNCION AGREGAR TAREA: Agregar nueva tarea desde el input
+// FUNCION AGREGAR TAREA
 
 function agregarTarea() {
   const textoTarea = inputTarea.value.trim();
@@ -118,11 +120,20 @@ function agregarTarea() {
   inputTarea.value = '';
   actualizarContadores();
   renderizarTareas();
+  
 }
 
-// Evento click del botón Agregar
+
+// MÓDULOS DE EVENTOS PARA AGREGAR TAREAS 
+
 btnAgregar.addEventListener('click', agregarTarea);
 
-// Inicializar la aplicación
+inputTarea.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    agregarTarea();
+  }
+});
+
+
 renderizarTareas();
 actualizarContadores();
